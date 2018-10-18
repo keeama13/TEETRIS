@@ -2,6 +2,7 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Media;
 
 class TetrisGame : Game
 {
@@ -39,7 +40,7 @@ class TetrisGame : Game
         
         // set the directory where game assets are located
         Content.RootDirectory = "Content";
-
+        MediaPlayer.Play(Content.Load<Song>("music"));
         // set the desired window size
         ScreenSize = new Point(800, 600);
         graphics.PreferredBackBufferWidth = ScreenSize.X;
@@ -52,7 +53,7 @@ class TetrisGame : Game
     protected override void LoadContent()
     {
         spriteBatch = new SpriteBatch(GraphicsDevice);
-
+        
         // create and reset the game world
         gameWorld = new GameWorld();
         gameWorld.Reset();
@@ -67,7 +68,7 @@ class TetrisGame : Game
 
     protected override void Draw(GameTime gameTime)
     {
-        GraphicsDevice.Clear(Color.White);
+        GraphicsDevice.Clear(Color.Orange);
 
         gameWorld.Draw(gameTime, spriteBatch);
 

@@ -32,3 +32,9 @@
 /processorParam:TextureFormat=Color
 /build:block.png
 
+#begin music.wma
+/importer:WmaImporter
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:music.wma
+

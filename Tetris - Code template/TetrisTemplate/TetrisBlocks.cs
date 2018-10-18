@@ -2,18 +2,43 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
+using System.Collections.Generic;
 
 public class TetrisBlocks
 {
     public bool[,] curBool;
     public Color curColor;
     public static TetrisBlocks curBlock;
-    Vector2 Location;
+    public Vector2 Location;
+
     public TetrisBlocks(Vector2 Location)
     {
         this.Location = Location;
     }
-     
+
+    public TetrisBlocks GetRandomBlock(int x)
+    {
+
+        switch (x)
+        {
+            case 0:
+                return new BlockI(new Vector2(3, -4));
+            case 1:
+                return new Square(new Vector2(5, -2));
+            case 2:
+                return new BlockS(new Vector2(4, -3));
+            case 3:
+                return new BlockZ(new Vector2(4, -3));
+            case 4:
+                return new BlockT(new Vector2(4, -3));
+            case 5:
+                return new BlockL(new Vector2(4, -3));
+            default:
+                return new BlockInvL(new Vector2(4, -3));
+        }
+    }
+    
+
 }
 
 public class BlockI : TetrisBlocks
